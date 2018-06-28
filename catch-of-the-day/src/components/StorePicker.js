@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 class StorePicker extends Component {
   render() {
     return (
-      <form className="store-selector">
-        <h2>Please enter a store</h2>
-        <input type="text" required placeholder="Store Name" />
-        <button type="submit">Visit Store ></button>
+      <form className="course-selector">
+        <h2>Please enter a Golf Course</h2>
+        <input type="text" required placeholder="Course Name" />
+        <button type="submit">Visit Course ></button>
       </form>
     )
   }

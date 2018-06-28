@@ -12,13 +12,8 @@ class App extends Component {
         <div className='menu'>
           <Header message="Fresh Seafood Market" />
         </div>
-        <div className='order'>
-          <Order />
-        </div>
-
-        <div className='inventory'>
-          <Inventory />
-        </div>
+        <Order />
+        <Inventory />
       </div>
     )
   }
