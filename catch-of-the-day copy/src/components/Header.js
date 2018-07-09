@@ -12,14 +12,14 @@ class Header extends Component {
             <span className="the">The</span>
           </span>
            Day</h1>
-        <h3 className='tagline'>{this.props.tagline}</h3>
+        <h3 className='tagline'> Fresh Seafood Market</h3>
       </header>
     )
   }
 }
 
 Header.PropTypes = {
-  tagline: PropTypes.string
+  message: PropTypes.string
 }
 
 export default Header;
