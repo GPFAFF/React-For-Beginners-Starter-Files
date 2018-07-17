@@ -1,14 +1,15 @@
 // Order
 import React, { Component } from 'react';
-import {formatPrice } from '../helpers';
+import {formatPrice} from '../helpers';
 
 class Fish extends Component {
-  render() {
 
+  render() {
     const {index} = this.props;
     const {image, name, price, desc, status} = this.props.details;
+    //const isAvailable = status === 'available';
 
-    const isAvailable = this.props.details.status === 'available';
+    const isAvailable = status === 'available';
     const buttonText = isAvailable ? 'Add to Order' : 'Sold Out!';
 
     return (
