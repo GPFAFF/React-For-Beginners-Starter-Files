@@ -18,7 +18,7 @@ class Header extends Component {
   }
 }
 
-Header.PropTypes = {
+Header.propTypes = {
   tagline: PropTypes.string
 }
 

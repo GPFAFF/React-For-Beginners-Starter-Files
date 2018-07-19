@@ -6,6 +6,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import Fish from './Fish';
 import sampleFishes from '../sample-fishes';
+import base from "../base";
 
 class App extends Component {
 
@@ -16,21 +17,29 @@ class App extends Component {
 
   componentDidMount() {
     const { params } = this.props.match;
-    // this.ref = base.syncState(`${params.storeId}/fishes`, {
-    //   context: this,
-    //   state: "fishes",
-    // });
+    const localStorageRef = localStorage.getItem(params.storeId);
+    console.log(localStorageRef);
+    if (localStorageRef) {
+      this.setState({
+        order: JSON.parse(localStorageRef)
+      })
+    }
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: "fishes",
+    });
+  }
+
+  componentWillUnmount() {
+    console.log('unmounting');
+    base.removeBinding(this.ref);
   }
 
   componentDidUpdate() {
     console.log(this.state.order);
-    localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order))
+    localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
     console.log('It Updated!');
   }
-
-  // componentWillUnmount() {
-  //   base.removeBinding(this.ref);
-  // }
 
   addToOrder = (key) => {
     const order = {...this.state.order};
@@ -52,7 +61,6 @@ class App extends Component {
 
   addToOrder = (key) => {
     // take a copy of state
-
     const order = {...this.state.order};
     // add to order, or update number in order
     order[key] = order[key] + 1 || 1;
