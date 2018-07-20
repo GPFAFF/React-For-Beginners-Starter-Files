@@ -58,8 +58,8 @@ class App extends Component {
     const fishes = {...this.state.fishes};
     // update that state
     fishes[key] = updatedFish;
-
-    this.setState = ({ fishes })
+    // set to state
+    this.setState({fishes});
   }
 
   loadSampleFishes = () => {
