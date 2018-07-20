@@ -2,18 +2,29 @@
 import React, { Component } from 'react';
 
 class EditFishForm extends Component {
+
+  handleChange = (event) => {
+    //update the fish
+    // take copy of current fish
+
+    const updatedFish = {
+      ...this.props.fish,
+      [event.currentTarget.name]: event.currentTarget.value
+    }
+    console.log(updatedFish)
+    this.props.updateFish(this.props.index, updatedFish);
+  }
   render() {
     return (
        <div className='fish-edit'>
-         <input type="text" name="name" placeholder="name" value={this.props.fish.name} />
-         <input type="text" name="price" placeholder="price" value={this.props.fish.price} />
-         <select type="text" name="status" placeholder="status" value={this.props.fish.status}>
-          <option value="-1">Status</option>
+         <input type="text" name="name" placeholder="name" onChange={this.handleChange} value={this.props.fish.name} />
+         <input type="text" name="price" placeholder="price" onChange={this.handleChange} value={this.props.fish.price}/>
+         <select type="text" name="status" placeholder="status" onChange={this.handleChange} value={this.props.fish.status}>
           <option value="available">Fresh!</option>
           <option value="unavaiable">Sold Out!</option>
          </select>
-         <textarea name="desc" placeholder="description"value={this.props.fish.desc} />
-         <input type="text" name="image" value={this.props.name.fish.image} />
+         <textarea name="desc" placeholder="description" onChange={this.handleChange} value={this.props.fish.desc} />
+         <input type="text" name="image" onChange={this.handleChange} value={this.props.fish.image} />
        </div>
     )
   }

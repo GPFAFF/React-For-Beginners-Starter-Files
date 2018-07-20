@@ -53,6 +53,15 @@ class App extends Component {
     this.setState({ fishes });
   }
 
+  updateFish = (key, updatedFish) => {
+    // take copy of state
+    const fishes = {...this.state.fishes};
+    // update that state
+    fishes[key] = updatedFish;
+
+    this.setState = ({ fishes })
+  }
+
   loadSampleFishes = () => {
     this.setState({
       fishes: sampleFishes
@@ -95,6 +104,7 @@ class App extends Component {
           fishes={this.state.fishes}
           loadSampleFishes={this.loadSampleFishes}
           addFish={this.addFish}
+          updateFish={this.updateFish}
         />
       </div>
     )
