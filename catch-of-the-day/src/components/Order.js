@@ -7,7 +7,6 @@ import {formatPrice} from '../helpers';
 class Order extends Component {
 
   static propTypes = {
-    renderOrder: PropTypes.func,
     removeItem: PropTypes.func,
     fishes: PropTypes.object,
     order: PropTypes.object,

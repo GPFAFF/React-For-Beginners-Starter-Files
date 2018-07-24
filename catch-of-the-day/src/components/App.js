@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   static propTypes = {
-    match: PropTypes.string,
+    match: PropTypes.object,
   }
 
   componentDidMount() {
@@ -127,6 +127,7 @@ class App extends Component {
           addFish={this.addFish}
           deleteFish={this.deleteFish}
           updateFish={this.updateFish}
+          storeId={this.props.match.params.storeId}
         />
       </div>
     )
