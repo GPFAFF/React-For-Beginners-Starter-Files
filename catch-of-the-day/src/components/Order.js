@@ -7,6 +7,7 @@ import {formatPrice} from '../helpers';
 class Order extends Component {
 
   static propTypes = {
+    renderOrder: PropTypes.func,
     removeItem: PropTypes.func,
     fishes: PropTypes.object,
     order: PropTypes.object,
@@ -71,11 +72,11 @@ class Order extends Component {
         <h2>Here is your order</h2>
         <TransitionGroup component="ul" className="order">
           {orderIds.map(this.renderOrder)}
-          <li className="total">
+        </TransitionGroup>
+        <li className="total">
             <strong>Total:</strong>
             {formatPrice(total)}
           </li>
-        </TransitionGroup>
       </div>
     )
   }
